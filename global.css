@@ -120,7 +120,7 @@ video {
 		grid-gap:4rem;
 		width:100%;
 		overflow:auto;
-		height:100%;
+		
 		padding:2rem 0;
 	}
 	& .item {
