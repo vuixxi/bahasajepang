@@ -1,0 +1,431 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html {
+	user-select:none;
+}
+body {
+	overflow-x:hidden;
+}
+
+img, 
+video {
+	width:100%;
+}
+
+.eror {
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align:center;
+	background-image: url('media/assets/credit.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	width:100vw;
+	height: 100vh;
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	color:pink;
+	font-weight:bold;
+	font-size:1.1rem;
+	text-shadow:1px 1px 0 black, 1px 1px 4px black;
+	&.hidden {
+		display:none;
+	}
+}
+
+.eror-input {
+	user-select:text;
+	width:80%;
+	outline:none;
+	background:rgba(0,0,0,.3);
+	border:solid 1.5px pink;
+	border-radius:7px;
+	font-size:1.1rem;
+	font-weight:450;
+	padding:1rem;
+	color:pink;
+	text-shadow:1px 1px 0 black, 1px 1px 4px black;
+	box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.74);
+}
+
+.container-page {
+	overflow-x:hidden;
+	&.hidden {
+		display:none;
+	}
+}
+
+.container-big {
+	position:fixed;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	width:100vw;
+	height:100vh;
+	background-color:#eaeaea;
+	overflow:hidden;
+	overflow:scroll;
+	overflow-x:hidden;
+	transform:translateY(20px);
+	scale:0;
+	opacity:0;
+	z-index:-99999;
+	transition:0.3s ease, opacity 0.3s ease, scale 0s 1s;
+	&.show {
+		transform:translateY(0);
+		scale:1;
+		opacity:1;
+		z-index:99999;
+		transition:transform 0.3s ease, opacity 0.3s ease, scale 0s;
+	}
+}
+.container-x {
+	padding:1rem;
+	height:100%;
+	overflow-y:hidden;
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
+.button-container {
+
+}
+
+.container-index {
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align:center;
+	background-image: url('credit.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	width:100%;
+	height:100vh;
+	transition:opacity 1s 0.3s;
+	position:relative;
+	overflow-x:hidden;
+	& .container {
+		display:grid;
+		justify-content:center;
+		grid-gap:4rem;
+		width:100%;
+		overflow:auto;
+		padding:2rem 0;
+	}
+	& .item {
+		display:grid;
+		grid-gap:1rem;
+		padding:3rem 1rem 1rem;
+		border:double;
+		width:80vw;
+		background-color:rgba(50,50,50,.2);
+		border-radius:3px;
+		position:relative;
+		&.wait {
+			position:relative;
+			pointer-events:none;
+			& .chotto {
+				position:absolute;
+				left:0;
+				top:0;
+				right:0;
+				bottom:0;
+				display:flex;
+				align-items:center;
+				justify-content:center;
+				background-color:rgba(0,0,0,.8);
+				color:#dddddd;
+				font-weight:450;
+				letter-spacing:1px;
+			}
+		}
+	}
+	& .item-header {
+		position:absolute;
+		left:0;
+		top:-0.6rem;
+		right:0;
+		text-align:center;
+		z-index:9;
+	}
+	& .item-header span {
+		background-color:silver;
+		font-weight:bold;
+		font-size:1.1rem;
+		padding:0.4rem 2rem;
+		border:solid;
+		border-radius:3px;
+		box-shadow:0px 0px 6px black;
+		&.premium {
+			background: linear-gradient(145deg, #d4af37, #cfa800);
+			color: #212121;
+		}
+	}
+	& h1 {
+		text-align: center;
+		font-size: 3rem;
+		font-weight:800;
+		color: pink;
+		text-shadow:1px 1px 0 black, 1px 1px 4px black;
+	}
+	& .button {
+		width:100%;
+		padding: 1rem 2rem;
+		background: linear-gradient(145deg, #111, #333);
+		border: none;
+		border-radius: 1.5rem;
+		box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4), -1px -1px 2px rgba(255, 255, 255, 0.3);
+		text-decoration: none;
+		color: white;
+		font-size: 1rem;
+		font-weight: bold;
+		transition: all 0.3s ease;
+		letter-spacing: 0.1rem;
+		cursor:default;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		&:hover {
+			filter:brightness(0.7);
+			transform: translateY(-0.2rem);
+		}
+		&.premium {
+			position: relative;
+			background: linear-gradient(145deg, #d4af37, #cfa800);
+			color: #212121;
+			border: none;
+			overflow: hidden; /* Untuk memastikan efek tidak keluar dari tombol */
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			&.none {
+				display:none;
+			}
+		}
+		&.premium::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: rgba(255, 255, 255, 0.4); /* Efek cahaya putih */
+			transition: left 0.3s ease;
+		}
+		&.premium:hover {
+			transform: translateY(-6px); /* Efek angkat tombol */
+			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 -3px 8px rgba(255, 255, 255, 0.2);
+		}
+		&.premium:hover::before {
+			left: 100%; /* Menampilkan efek whitescreen */
+		}
+		&.disabled {
+			pointer-events:none;
+		}
+	}
+	& .connect {
+		color:pink;
+		font-weight:bold;
+		font-size:1.2rem;
+		text-shadow:1px 1px 0 black, 1px 1px 4px black;
+	}
+}
+
+
+
+
+
+
+.header {
+	text-align: center;
+	font-size: 2rem;
+	font-weight:750;
+	color: pink;
+	margin-bottom: 2rem;
+}
+.text-header {
+	text-shadow:1px 1px 1px rgba(0,0,0,.6);
+}
+.header p {
+	color:#aaa;
+	font-size:0.9rem;
+	padding:1px;
+}
+
+
+
+
+
+
+
+#HanaTatabahasa,
+#HanaSSWPMKosakata,
+#JFTKanji,
+#N5Kosakata,
+#MNNKosakata,
+#SSWPMKosakata {
+	& .grup-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 2rem;
+	}
+	& .card-group {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0.8rem;
+		width: 100%;
+	}
+	& .group-button {
+		padding: 1rem 0.5rem;
+		font-weight: bold;
+		font-size:1.07rem;
+		border: 2px solid #28a745;
+		background: linear-gradient(145deg, #28a745, #1c7c33);
+		color: #f5f5dc;
+		border-radius: 8px;
+		outline: none;
+		cursor: pointer;
+		white-space:nowrap;
+		transition: all 0.3s ease;
+		box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.2);
+		text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.1);
+	}
+	& .group-button:hover {
+		background: linear-gradient(145deg, #1c7c33, #28a745);
+		box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.4), -8px -8px 16px rgba(255, 255, 255, 0.3);
+		transform: translateY(-5px);
+		text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 0, 0, 0.3);
+	}
+	& .card-container {
+		display: grid;
+		grid-template-columns: 1fr;
+		align-items: center;
+		gap: 1.5rem;
+		opacity: 0;
+		transform: translateY(-20px);
+		transition: opacity 0.3s ease, transform 0.3s ease;
+	}
+	& .card-container.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	& .button-container {
+		position:sticky;
+		top:0rem;
+		z-index: 999;
+		display: flex;
+		justify-content:space-between;
+		gap: 1rem;
+		background: white;
+		padding: 1rem;
+		border-radius: 0.5rem;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		transition:0.5s 0.3s;
+	}
+	& .button-container button {
+		width:100%;
+		padding: 0.5rem 1rem;
+		border: none;
+		border-radius: 0.25rem;
+		cursor: pointer;
+		font-weight: bold;
+		transition: background 0.3s, transform 0.2s;
+	}
+	& .close-button {
+		background: #dc3545;
+		color: white;
+	}
+	& .close-button:hover {
+		background: #c82333;
+		transform: translateY(-2px);
+	}
+	& .shuffle-button {
+		background: #007bff;
+		color: white;
+	}
+	& .shuffle-button:hover {
+		background: #0056b3;
+		transform: translateY(-2px);
+	}
+	& .reset-button {
+		background: #ffc107;
+		color: black;
+	}
+	& .reset-button:hover {
+		background: #e0a800;
+		transform: translateY(-2px);
+	}
+	& .card {
+		width: 100%; /* Pastikan lebar 100% */
+		height: 18rem;
+		perspective: 1000px;
+		background: white;
+		border-radius: 0.5rem;
+		border: 1px solid #ccc;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		padding: 1rem;
+		margin-bottom: 1rem; /* Tambahkan margin untuk jarak antar kartu */
+		text-align:center;
+		transition: border-color 0.3s;
+	}
+	& .card-inner {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		transition: transform 0.6s;
+		transform-style: preserve-3d;
+	}
+	& .card-front,
+	& .card-back {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		backface-visibility: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 0.5rem;
+	}
+	& .card-front {
+		background: #f8f9fa;
+		color: #333;
+		font-weight: 800;
+		font-size:2rem;
+		padding:1rem;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		@media screen and (max-width: 361px) {
+			font-size:1.8rem;
+		}
+	}
+	& .card-back {
+		font-size:0.9rem;
+		background: #f1f3f5;
+		color: #444;
+		transform: rotateY(180deg);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem;
+		font-weight:450;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	}
+	& .flipped {
+		transform: rotateY(180deg);
+	}
+	& .card.active {
+		border-color: green; /* Border hijau saat dibalik */
+	}
+	& .hidden {
+		display: none;
+	}
+}
