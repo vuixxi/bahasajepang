@@ -1,0 +1,12 @@
+[
+  {
+    "id": "bab1",
+    "title": "Bab 1 - Perkenalan",
+    "file": "bab1.json"
+  },
+  {
+    "id": "bab2",
+    "title": "Bab 2 - Benda",
+    "file": "bab2.json"
+  }
+]

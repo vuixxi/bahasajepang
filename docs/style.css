@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.app {
+  width: 40%;
+  margin: auto;
+  padding: 1rem;
+}
+
+.app .chapter-grid {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.app .level-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+
+
+
+.app .quiz-panel {
+  height: 100dvh;
+}
+
+
+
+
+.quiz-panel .quiz-panel__controls {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1rem;
+}
+
+.quiz-panel .quiz-panel__controls .quiz-panel__head {
+  border-radius: 0.4rem;
+}
+
+.quiz-panel .quiz-panel__controls .quiz-panel__head h2 {
+  padding: 1rem;
+  text-align: center;
+}
+
+.quiz-panel .quiz-panel__controls .quiz-panel__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.quiz-panel .quiz-panel__controls .quiz-panel__question h1 {
+  background-color: #eaeaea;
+  text-align: center;
+  padding: 2rem 0.6rem;
+  border-radius: 0.4rem;
+}
+
+.quiz-panel .quiz-panel__controls .quiz-panel__answer {
+  display: flex;
+  flex-direction: column;
+  /* gap: 0.6rem; */
+}
+
+.quiz-panel .quiz-panel__controls .quiz-panel__answer button {
+  padding: 1rem;
+  border-radius: 3px;
+  margin-top: -1px;
+}
+
+.quiz-panel .quiz-panel__controls .quiz-panel__answer button:hover {
+  transform: none;
+  box-shadow: none;
+  background-color: #fafafa;
+}
+.quiz-panel .quiz-panel__controls .quiz-panel__answer button:active {
+  transform: none;
+  box-shadow: none;
+  scale: 0.98;
+}
+
+.quiz-panel .quiz-panel__result {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-panel .quiz-panel__result .quiz-panel__result-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: #fcfcfc;
+  min-height: 30%;
+  border-radius: 0.4rem;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+button {
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+
+
+/* tapi kalau disabled, semua jadi abu-abu */
+button:disabled {
+  background: #ccc !important;
+  color: #777 !important;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* pastikan disabled tidak punya hover */
+button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Level styles */
+[data-level="Mudah"] {
+  background-color: #2ecc71;
+}
+
+[data-level="Sedang"] {
+  background-color: #f1c40f;
+  color: #2c3e50;
+}
+
+[data-level="Sulit"] {
+  background-color: #e67e22;
+}
+
+[data-level="Ekstrim"] {
+  background-color: #e74c3c;
+}
+
+[data-level="Grand"] {
+  background-color: #8e44ad;
+}
+
+/* Hover effect */
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+}
+
+/* Active/click effect */
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+}
